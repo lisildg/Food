@@ -1,6 +1,7 @@
 const axios = require('axios');
 const {Recipes, Diets} = require('../src/db')
-const {API_KEY}= procces.env
+const { API_KEY } = process.env;
+
 
 
 const SearchInApi =async ()=>{
