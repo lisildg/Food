@@ -1,0 +1,66 @@
+.Paginacion {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+   
+  }
+  
+  .BarraPaginacion {
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 60px; 
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: fixed;
+    
+  
+  }
+  
+  .Paginacion button {
+    margin: 0 0.5rem;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .Paginacion button:hover {
+    background: #d63b3b;
+  }
+  
+  .Paginacion button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .Paginacion .BtnPaginacion {
+    position: relative;
+    bottom: -16px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #e73f3f;
+    color: #313136;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  
+  .Paginacion .BtnPaginacion:hover {
+    background: #d63b3b;
+  }
+  
+  .Paginacion .BtnPaginacion:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .Paginacion button:focus,
+  .Paginacion .BtnPaginacion:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+  
