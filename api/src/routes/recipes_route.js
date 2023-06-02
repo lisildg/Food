@@ -5,7 +5,7 @@ const {Recipes, Diets} =require('../db')
 
 const recipesRoute = Router()
 
-recipesRoute.get("/id", async (req, res)=>{
+recipesRoute.get("/:id", async (req, res)=>{
     const {id} =req.params
 
     try{

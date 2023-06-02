@@ -12,7 +12,7 @@ return (
     <div>
       
       <input className={style.Search}
-        placeholder="Busca tu receta por su nombre"  
+        placeholder="Search your recipe by name"  
         type="text"
         onChange={props.handleChange}
         value={search}

@@ -42,7 +42,7 @@ export const setSeleccionadas =(payload)=>{
 export const traerDietas =()=>{
      return async (dispatch) =>{
         let receta = await axios(`/diets/`)
-        return dispatch({type: TRAER_RECETAS, payload: receta.data})
+        return dispatch({type: TRAER_DIETAS, payload: receta.data})
      }
 };
 

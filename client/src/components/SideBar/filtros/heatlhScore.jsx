@@ -8,7 +8,8 @@ import { useState } from "react";
 export const Health = () => {
 
     const dispatch = useDispatch()
-    const [setValue] = useState("");
+    const [, setValue] = useState("");
+
 
     const filter = (e) =>{
         e.preventDefault()

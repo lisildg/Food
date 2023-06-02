@@ -28,16 +28,16 @@ export const Home = () => {
     <div className={`${style.container} `}>
       <Nav className={style.nav} />
       <Sidebar />
-      {Array.isArray(currentRecipes) && currentRecipes.length > 0 && currentRecipes.map((r, index) => (
-        <CardRecipe
-          key={`r.${index}`}
-          image={r.image}
-          name={r.name}
-          diets={r.diets}
-          healthScore={r.healthScore}
-          id={r.id}
-        />
-      ))}
+      {currentRecipes.length && currentRecipes.map((r, index) => (
+            <CardRecipe
+              key={`r.${index}`}
+              image={r.image}
+              name={r.name}
+              diets={r.diets}
+              healthScore={r.healthScore}
+              id={r.id}
+            />
+          ))}
       <Pagination
         className="pagination"
         recipesPerPage={recipesPerPage}

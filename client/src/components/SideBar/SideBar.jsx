@@ -9,8 +9,6 @@ import style from "./siderbar.module.css"
 import { useEffect } from "react";
 import { SearchBar } from "../SearchBar/SearchBar";
 
-
-
 export const Sidebar = (props) =>{
 
 const dispatch = useDispatch()    
@@ -19,8 +17,6 @@ const recetas2 = useSelector(state => state.recetas2)
 
 const seleccionadas = useSelector(state => state.seleccionadas)
 const search = useSelector(state => state.search)
-
-
 
   const handleChange2 = (e) => {
 
@@ -37,8 +33,6 @@ const search = useSelector(state => state.search)
   
   };
 
-
-
  const filtroDietas = (seleccionadas, dietas) =>{
     for(const id of seleccionadas){
       const result = dietas?.find((ele) => ele == id)
@@ -48,7 +42,7 @@ const search = useSelector(state => state.search)
    } 
 
 
-   const filtro = Array.isArray(recetas2) ? recetas2.filter((ele) => filtroDietas(seleccionadas, ele.diets) && ele.name?.toLowerCase().includes(search)) : [];
+  const filtro = recetas2?.filter((ele) => filtroDietas(seleccionadas, ele.diets) && ele.name?.toLowerCase().includes(search) ) 
 
   
 //barrra de busqueda

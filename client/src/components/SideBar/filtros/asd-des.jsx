@@ -17,7 +17,7 @@ export const DesAsc = (props) => {
   return (
     <div className={style.box}>
       <select className={style.classic} onChange={handleSort} value={value}>
-        <option value="">Orden Alfabético</option>
+        <option value=""> Alfabetic Order</option>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
       </select>
