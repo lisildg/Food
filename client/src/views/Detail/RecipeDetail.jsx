@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { recetaId, vaciarId } from '../../Redux/actions'
 import style from './Detail.module.css'
+import Loading from "../../components/Loading/Loading";
 
 export const RecipeDetail = (props) => {
     
@@ -28,6 +29,18 @@ export const RecipeDetail = (props) => {
       
         return () => clearTimeout(timerId)}
       }, [dispatch])
+
+      const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      // Simulando una tarea asincrónica
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    }, []);
+    if (isLoading) {
+      return <Loading />;
+    }
 
     return (
         <div className={style.fondo}>

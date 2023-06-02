@@ -28,7 +28,7 @@ export const cambiarPagina =(pagenumber)=>{
 };
 export const setSearch =(payload)=>{
     return{
-        type: CAMBIAR_PAGINA,
+        type: SEARCH,
         payload
     }
 }

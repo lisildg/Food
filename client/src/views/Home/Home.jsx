@@ -7,6 +7,7 @@ import { Pagination } from "../../components/Pagination/Pagination";
 import { useState } from "react";
 import { Sidebar } from "../../components/SideBar/SideBar";
 import { Nav } from "../../components/Nav/NavBar";
+import Loading from "../../components/Loading/Loading";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,17 @@ export const Home = () => {
     ? recetas.slice(indexOfFirstRecipe, indexOfLastRecipe)
     : [];
 
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      // Simulando una tarea asincrónica
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    }, []);
+    if (isLoading) {
+      return <Loading />;
+    }
   return (
     <div className={`${style.container} `}>
       <Nav className={style.nav} />

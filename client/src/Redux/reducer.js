@@ -1,57 +1,62 @@
-import {TRAER_RECETAS, MODIFICAR_RECETA, VACIAR_ID, CAMBIAR_PAGINA, SEARCH, SELECCIONADAS, TRAER_DIETAS, FILTRAR_DIETAS, POST_RECIPE, ORDENAR_POR_NOMBRE, FILTRO_SCORE,  RECETA_ID, LIMPIAR_DETAIL} from './action-types';
+import { TRAER_RECETAS, MODIFICAR_RECETA, VACIAR_ID, CAMBIAR_PAGINA, SEARCH, SELECCIONADAS, TRAER_DIETAS, FILTRAR_DIETAS, POST_RECIPE, ORDENAR_POR_NOMBRE, FILTRO_SCORE,  RECETA_ID, LIMPIAR_DETAIL } from './action-types';
 
-const initialState ={
+const initialState = {
     recetas: [],
-    recetas2: [],
+    recetas2: [], // para filtros
     dietas: [],
     currentPage: 1,
     recetaId: [],
     seleccionadas: [],
-    search: '', 
-}
+    search: '',
+    
+};
 
-const rootReducer =(state = initialState, action) =>{
-    switch(action.type){
+const rootReducer = (state = initialState, action) => {
+    switch(action.type) {
         case TRAER_RECETAS:
-            return{
+            return {
                 ...state,
                 recetas: action.payload,
                 recetas2: action.payload,
                 detailId: []
             }
+
         case LIMPIAR_DETAIL:
-            return{
+            return {
                 ...state,
-                detailId:[]
+                detailId: []
             }
         case MODIFICAR_RECETA:
-            return{
+            return {
                 ...state,
                 recetas: action.payload,
                 recetas2: action.payload
             }
         case RECETA_ID:
-            return{
+            return {
                 ...state,
                 recetaId: action.payload
             }
         case VACIAR_ID:
-            return{
+            return {
                 ...state,
                 recetaId: []
             }
         case TRAER_DIETAS:
-            return{
+            return {
                 ...state,
                 dietas: action.payload
             }
         case FILTRAR_DIETAS:
-            return{
+            return {
+            
                 ...state,
-                dietas: [...action.payload]
+                recetas: [...action.payload]
+                
             }
+            
         case CAMBIAR_PAGINA:
-            return{
+            return {
                 ...state,
                 currentPage: action.payload
             }
@@ -88,25 +93,29 @@ const rootReducer =(state = initialState, action) =>{
                 recetas: orderByHealthScore,
                 currentPage: 1
             }
-        case SELECCIONADAS:
-            return{
+            
+        case SELECCIONADAS: 
+            return {
                 ...state,
-                search: action.payload
+                seleccionadas: [...action.payload]
             }
         case SEARCH:
-            return{
+            return {
                 ...state,
                 search: action.payload
             }
-        case POST_RECIPE:
-            return{
+        
+         case POST_RECIPE:
+            return {
                 ...state,
-                recetas: [...state.recetas, action.payload]
-            }
-
+                recetas: [...state.recetas, action.payload]}
+       
+    
+    
         default:
-           return { ...state }    
+            return { ...state }
     }
-}
+    
+};
 
 export default rootReducer;
