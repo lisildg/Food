@@ -35,9 +35,9 @@ recipesRoute.post('/', async(req, res)=>{
     try {
         const objRecipe = req.body;
         const newRecipe = await postRecipe(objRecipe)
-        res.status(200).send(newRecipe)
+        res.status(201).send(newRecipe)
     } catch (error) {
-        res.status(400).send(error)
+        res.status(404).send(error)
     }
 })
 

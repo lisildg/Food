@@ -48,7 +48,8 @@ const search = useSelector(state => state.search)
    } 
 
 
-   const filtro = recetas2?.filter((ele) => filtroDietas(seleccionadas, ele.diets) && ele.name?.toLowerCase().includes(search) ) 
+   const filtro = Array.isArray(recetas2) ? recetas2.filter((ele) => filtroDietas(seleccionadas, ele.diets) && ele.name?.toLowerCase().includes(search)) : [];
+
   
 //barrra de busqueda
 const handleChange =(e) => { 

@@ -9,7 +9,7 @@ dietsRoute.get('/', async(req, res)=>{
         const allDiets = await putDietInfo()
         res.status(200).send(allDiets)
     } catch (error) {
-        req.status(400).send(error)
+        res.status(400).send(error)
     }
 })
 

@@ -8,9 +8,6 @@ import { Form } from './views/Form/Form';
 import { RecipeDetail } from './views/Detail/RecipeDetail';
 
 
-
-
-
 axios.defaults.baseURL ='http://localhost:3001'
 
 
@@ -24,9 +21,6 @@ function App() {
         <Route path='/create' component={Form}/>
         <Route path='detail/:id' component={RecipeDetail}/>
       </Switch>
-
-
-
 
     </div>
   );

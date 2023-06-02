@@ -104,7 +104,7 @@ const putDietInfo = async ()=>{
         data.forEach((e)=> {
             recetas=[...recetas, ...e.diets]
         });
-        recetas= [...new set(recetas)];
+        recetas= [...new Set(recetas)];
         for (let name of recetas){
             await Diets.create({name:name})
         }
