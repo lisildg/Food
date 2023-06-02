@@ -1,0 +1,39 @@
+
+.navbarMenu {
+    display: flex;
+    justify-content:center;
+    background-color:  rgba(222, 52, 10, 0.811);
+  }
+  
+  .navbarMenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  .navbarMenu button {
+    margin-right: 10px;
+  }
+
+  .exitButton{
+    background-color: red
+    
+  }
+  .homeButton{
+    background-color: red
+    }
+
+  .createRecipeButton{
+    background-color: red
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  

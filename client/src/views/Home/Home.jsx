@@ -56,9 +56,3 @@ export const Home = () => {
     
     
 };
-
-
-
-
-
-

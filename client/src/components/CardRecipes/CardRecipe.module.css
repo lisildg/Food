@@ -1,0 +1,50 @@
+.card {
+    box-sizing: border-box;
+    width: 300px;
+    height: 400px;
+    background: rgba(222, 52, 10, 0.811);
+    border: .1rem solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(6px);
+    border-radius: .7rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    align-items: center;
+    justify-content:center;
+    user-select: none;
+    font-weight: bolder;
+    margin: .5rem;
+    padding: .2rem;
+}
+
+.card:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  
+
+}
+
+.name {
+    color: #edf2f4;
+    text-shadow: 5px 5px 5px rgb(29, 29, 29);
+}
+
+.diets {
+    color: #dad7cd;
+    text-shadow: 5px 5px 5px rgb(15, 15, 15);
+    margin-bottom: 5px;
+}
+
+.healthScore {
+    color: #dad7cd;
+    text-shadow: 5px 5px 5px rgb(15, 15, 15);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
