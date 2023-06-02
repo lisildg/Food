@@ -26,6 +26,12 @@ export const cambiarPagina =(pagenumber)=>{
         payload: pagenumber++
     }
 };
+export const setSearch =(payload)=>{
+    return{
+        type: CAMBIAR_PAGINA,
+        payload
+    }
+}
 export const setSeleccionadas =(payload)=>{
     return{
         type: SELECCIONADAS,

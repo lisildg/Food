@@ -6,8 +6,6 @@ import * as actions from '../../../Redux/actions'
 import style from "./Dietas.module.css"
 
 export const Dietas = (props) => {
-
-
 const diets = useSelector((state) => state.dietas);
  
 const seleccionadas = useSelector((state) => state.seleccionadas);
