@@ -10,6 +10,7 @@ const diets = useSelector((state) => state.dietas);
  
 const seleccionadas = useSelector((state) => state.seleccionadas);
 
+
 const dispatch = useDispatch();
 
 useEffect(() =>{

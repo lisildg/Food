@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {TRAER_RECETAS, LIMPIAR_DETAIL, VACIAR_ID, CAMBIAR_PAGINA, SEARCH, SELECCIONADAS, TRAER_DIETAS, FILTRAR_DIETAS, ORDENAR_POR_NOMBRE, FILTRO_SCORE, RECETA_ID,} from './action-types'
+import {TRAER_RECETAS,SET_FILTERED_RECIPES,CLEAN_FILTERED_RECIPES, LIMPIAR_DETAIL, VACIAR_ID, CAMBIAR_PAGINA, SEARCH, SELECCIONADAS, TRAER_DIETAS, FILTRAR_DIETAS, ORDENAR_POR_NOMBRE, FILTRO_SCORE, RECETA_ID,} from './action-types'
 
 export const traerReceta=()=>{
     return async (dispatch) =>{
@@ -67,16 +67,17 @@ export const filtroScoreH=(payload)=>{
     }
 };
 
-export const recetaId=(id)=>{
-    try {
-        return async (dispatch)=>{
-            let receta =await axios(`/recipes/${id}`);
-            return dispatch ({type: RECETA_ID, payload: receta.data})
-        }
-    } catch (error) {
-        console.log(error)
-    }
-};
+export const recetaId = (id) => {
+    return async (dispatch) => {
+      try {
+        let receta = await axios(`/recipes/${id}`);
+        return dispatch({ type: RECETA_ID, payload: receta.data });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  };
+  
 
 export const postRecipe =(payload)=>{
     return async function(dispatch){
@@ -97,3 +98,17 @@ export const modificar =(id, payload) =>{
         return modificar
     }
 }
+
+export const setFilteredRecipes = (recipes) => {
+    return {
+      type: SET_FILTERED_RECIPES,
+      payload: recipes,
+    };
+  };
+  
+  export const cleanFilteredRecipes = () => {
+    return {
+      type: CLEAN_FILTERED_RECIPES,
+    };
+  };
+  

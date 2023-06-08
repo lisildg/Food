@@ -7,7 +7,8 @@ import { traerDietas } from "../../Redux/actions";
 import validations from "./validations";
 import { useHistory } from "react-router-dom";
 import { Nav2 } from "../../components/Nav copy/NavBar2";
-import Loading from "../../components/Loading/Loading";
+
+import Loader from "../../components/Loading/Loader";
 
 
 export function Form() {
@@ -151,7 +152,7 @@ export function Form() {
       }, 2000);
     }, []);
     if (isLoading) {
-      return <Loading />;
+      return <Loader />;
     }
 
 

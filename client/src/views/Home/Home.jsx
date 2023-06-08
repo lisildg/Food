@@ -1,21 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CardRecipe } from "../../components/CardRecipes/CardRecipe";
-import style from './Home.module.css'
+import style from "./Home.module.css";
 import { traerReceta } from "../../Redux/actions";
 import { Pagination } from "../../components/Pagination/Pagination";
-import { useState } from "react";
 import { Sidebar } from "../../components/SideBar/SideBar";
-import { Nav } from "../../components/Nav/NavBar";
-import Loading from "../../components/Loading/Loading";
+import Loader from "../../components/Loading/Loader";
+import { NavBar2 } from "../../components/Nav/Navbar2";
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const recetas = useSelector(state => state.recetas);
-  const currentPage = useSelector(state => state.currentPage);
+  const recetas = useSelector((state) => state.recetas);
+  const currentPage = useSelector((state) => state.currentPage);
+  const [isLoading, setIsLoading] = useState(true);
+  const isMounted = useRef(true); // Create a ref to track component mount state
 
   useEffect(() => {
     dispatch(traerReceta());
+
+    return () => {
+      // Cleanup function to cancel any pending asynchronous tasks
+      isMounted.current = false; // Set the mount state to false on unmount
+    };
   }, [dispatch]);
 
   const [recipesPerPage] = useState(9);
@@ -25,31 +31,39 @@ export const Home = () => {
     ? recetas.slice(indexOfFirstRecipe, indexOfLastRecipe)
     : [];
 
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-      // Simulando una tarea asincrónica
-      setTimeout(() => {
+  useEffect(() => {
+    // Simulating an asynchronous task
+    const timer = setTimeout(() => {
+      if (isMounted.current) {
         setIsLoading(false);
-      }, 2000);
-    }, []);
-    if (isLoading) {
-      return <Loading />;
-    }
+      }
+    }, 6000);
+
+    return () => {
+      // Cleanup function to cancel the timeout when the component is unmounted
+      clearTimeout(timer);
+    };
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className={`${style.container} `}>
-      <Nav className={style.nav} />
+      <NavBar2 />
       <Sidebar />
-      {currentRecipes.length && currentRecipes.map((r, index) => (
-            <CardRecipe
-              key={`r.${index}`}
-              image={r.image}
-              name={r.name}
-              diets={r.diets}
-              healthScore={r.healthScore}
-              id={r.id}
-            />
-          ))}
+      {currentRecipes.length &&
+        currentRecipes.map((r, index) => (
+          <CardRecipe
+            key={`r.${index}`}
+            image={r.image}
+            name={r.name}
+            diets={r.diets}
+            healthScore={r.healthScore}
+            id={r.id}
+          />
+        ))}
       <Pagination
         className="pagination"
         recipesPerPage={recipesPerPage}
