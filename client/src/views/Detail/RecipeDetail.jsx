@@ -30,7 +30,7 @@ export const RecipeDetail = () => {
     // Simulating an asynchronous task
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 6000);
   }, []);
 
   if (isLoading) {
