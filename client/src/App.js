@@ -9,7 +9,7 @@ import { RecipeDetail } from './views/Detail/RecipeDetail';
 
 
 
-axios.defaults.baseURL ='http://localhost:3001'
+axios.defaults.baseURL ='http://food-production-e062.up.railway.app'
 
 
 function App() {
