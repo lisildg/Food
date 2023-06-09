@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const CardRecipe = ({ id, name, healthScore, image, diets }) => {
   if(name){
   return (
-    <Link to={`/detail/${id}`}>
+    <Link to={`/errorDetail/${id}`}>
       <div className={style.card}>
         <img 
           className={style.image}

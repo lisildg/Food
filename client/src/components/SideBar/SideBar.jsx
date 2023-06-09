@@ -9,14 +9,13 @@ import style from "./siderbar.module.css";
 import { useEffect } from "react";
 import { SearchBar } from "../SearchBar/SearchBar";
 
-export const Sidebar = (props) => {
+export const Sidebar = () => {
   const dispatch = useDispatch();
 
-  const recetas2 = useSelector((state) => state.recetas2);
-
+  const recetas2 = useSelector((state) => state.recetas2) || [];
   const seleccionadas = useSelector((state) => state.seleccionadas);
   const search = useSelector((state) => state.search);
-  const filteredRecipes = useSelector((state) => state.filteredRecipes);
+  
 
   const handleChange2 = (e) => {
     const name = e.target.value;
@@ -37,7 +36,8 @@ export const Sidebar = (props) => {
     return true;
   };
 
-  const filtro = recetas2?.filter((ele) => filtroDietas(seleccionadas, ele.diets) && ele.name?.toLowerCase().includes(search));
+  const filtro = recetas2?.filter((ele) => filtroDietas(seleccionadas, ele.diets) && ele.name?.toLowerCase().includes(search) ) 
+
 
   // Barrra de busqueda
   const handleChange = (e) => {
@@ -47,7 +47,9 @@ export const Sidebar = (props) => {
   };
 
   useEffect(() => {
-    dispatch(actions.filtrarDietas(filtro));
+    if (filtro && filtro.length > 0) {
+      dispatch(actions.filtrarDietas(filtro));
+    }
   }, [search, seleccionadas]);
 
   const handleClick = () => {
