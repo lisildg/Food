@@ -101,13 +101,13 @@ const result = searchRecipe.filter((element) => element.name.toLowerCase().inclu
 
 
 const putDietInfo = async()=>{
-    let ruta = `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`;
+    // let ruta = `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`;
    
 
     const isEmpty = await Diets.findAll();
     if(!isEmpty.length){
       let recetas = ["vegetarian"];
-      const peticion = await axios.get(ruta);
+      const peticion = await axios.get(`https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`);
       let data = await peticion.data.results; //data Es Un Array De Objetos De Recetas
 
       data.forEach((elem) => {
